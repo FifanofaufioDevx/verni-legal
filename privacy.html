@@ -80,35 +80,35 @@
 
       <section id="sec-2" class="legal-section">
         <h2><span class="sec-index">2.</span> Permisos del Sistema y Justificación de Uso</h2>
-        <p>Para que el sistema de juego funcione correctamente, Verni solicitará acceso explícito a funciones de tu
-          dispositivo. A continuación, la justificación formal requerida por los sistemas operativos móviles:</p>
+        <p>Para que la experiencia de exploración y validación funcione correctamente, Verni solicitará acceso explícito a funciones y recursos de tu dispositivo. A continuación, detallamos de forma exhaustiva las razones técnicas y operativas de cada solicitud:</p>
 
-        <h3>iOS</h3>
+        <h3>Geolocalización en Primer Plano (GPS)</h3>
+        <p><strong>Permisos asociados:</strong> <span class="perm-code">ACCESS_FINE_LOCATION</span>, <span class="perm-code">ACCESS_COARSE_LOCATION</span> (Android) / <span class="perm-code">NSLocationWhenInUseUsageDescription</span> (iOS).</p>
         <ul>
-          <li><span class="perm-code">NSLocationWhenInUseUsageDescription</span>: "Verni necesita tu ubicación para
-            mostrarte retos, rutas y lugares cercanos en el mapa."</li>
-          <li><span class="perm-code">NSCameraUsageDescription</span>: "Verni necesita acceso a la cámara para tomar
-            fotos de tus evidencias y completar retos."</li>
-          <li><span class="perm-code">NSPhotoLibraryUsageDescription</span>: "Verni necesita acceso a tu galería para
-            subir evidencias y personalizar tu perfil."</li>
+          <li><strong>¿Para qué se usa?</strong> Centrar tu posición en el mapa interactivo, calcular distancias y recomendaciones de lugares patrimoniales o turísticos cercanos, trazar rutas y validar que te encuentras físicamente en el lugar para completar un reto.</li>
+          <li><strong>¿Cuándo se recopila?</strong> Única y exclusivamente cuando la aplicación se encuentra abierta y en pantalla (primer plano). <strong>Verni NO rastrea ni recopila tu ubicación en segundo plano (background)</strong> cuando la app está cerrada o minimizada.</li>
         </ul>
 
-        <h3>Android</h3>
+        <h3>Cámara del Dispositivo</h3>
+        <p><strong>Permisos asociados:</strong> <span class="perm-code">CAMERA</span> (Android) / <span class="perm-code">NSCameraUsageDescription</span> (iOS).</p>
         <ul>
-          <li><span class="perm-code">ACCESS_FINE_LOCATION</span> / <span
-              class="perm-code">ACCESS_COARSE_LOCATION</span>: geolocalización para la validación de retos.</li>
-          <li><span class="perm-code">CAMERA</span>: captura de evidencias fotográficas.</li>
-          <li><span class="perm-code">READ_MEDIA_IMAGES</span>: selección de imágenes para el perfil del usuario.</li>
-          <li><span class="perm-code">POST_NOTIFICATIONS</span> (Android 13 o superior): envío de notificaciones push.
-          </li>
+          <li><strong>¿Para qué se usa?</strong> Capturar la fotografía en tiempo real que sirve de evidencia fotográfica para validar la visita a un lugar y completar retos.</li>
+          <li><strong>¿Cuándo se recopila?</strong> Únicamente a petición expresa del usuario al presionar el disparador en el flujo de validación de un reto. Verni no toma fotografías de forma oculta, automática ni graba video o audio.</li>
         </ul>
 
-        <h3>Notificaciones Push (iOS y Android)</h3>
-        <p>Solicitamos tu permiso para enviarte notificaciones push relacionadas con retos disponibles, actividad de tus
-          amigos y beneficios de comercios aliados. Puedes desactivar las notificaciones en cualquier momento desde los
-          ajustes de tu dispositivo o desde la configuración de la App. Las notificaciones de carácter promocional
-          (beneficios de comercios aliados) podrán gestionarse de forma independiente a las notificaciones funcionales
-          del sistema de retos.</p>
+        <h3>Fotos y Galería Multimedia</h3>
+        <p><strong>Permisos asociados:</strong> <span class="perm-code">READ_MEDIA_IMAGES</span>, <span class="perm-code">READ_EXTERNAL_STORAGE</span> (Android) / <span class="perm-code">NSPhotoLibraryUsageDescription</span> (iOS).</p>
+        <ul>
+          <li><strong>¿Para qué se usa?</strong> Permitir al usuario (1) seleccionar una imagen de su galería para su foto de perfil y (2) adjuntar fotografías complementarias al crear publicaciones en la comunidad.</li>
+          <li><strong>¿Cuándo se recopila?</strong> Solo cuando abres el selector de archivos multimedia del sistema operativo. Verni únicamente procesa las imágenes que tú seleccionas voluntariamente, sin acceder ni indexar el resto de tu galería privada.</li>
+        </ul>
+
+        <h3>Notificaciones Push</h3>
+        <p><strong>Permisos asociados:</strong> <span class="perm-code">POST_NOTIFICATIONS</span> (Android 13+) / Registro APNs (iOS).</p>
+        <ul>
+          <li><strong>¿Para qué se usa?</strong> Enviarte alertas funcionales sobre la validación de tus retos, medallas e insignias desbloqueadas, solicitudes o interacciones de amigos y avisos importantes de seguridad de tu cuenta.</li>
+          <li><strong>Gestión y control:</strong> Las notificaciones son opcionales y pueden activarse, desactivarse o revocarse en cualquier momento desde los ajustes de tu dispositivo o en la configuración de la App.</li>
+        </ul>
       </section>
 
       <section id="sec-3" class="legal-section">
@@ -126,18 +126,18 @@
               <tr>
                 <td><strong>Geolocalización</strong></td>
                 <td>Coordenadas GPS (latitud/longitud) y precisión del sensor.</td>
-                <td>Validación antifraude de retos, renderizado del mapa y cálculo de distancias para otorgar puntos.
+                <td>Validación antifraude de retos, renderizado del mapa y cálculo de distancias para recomendaciones en base a la distancia.
                 </td>
               </tr>
               <tr>
                 <td><strong>Contenido Multimedia</strong></td>
                 <td>Fotografías capturadas en la App (evidencias), imágenes de perfil y metadatos EXIF.</td>
-                <td>Comprobación de misiones y auditoría para la entrega de recompensas premium (Sello Verni).</td>
+                <td>Comprobación de misiones y auditoría para la entrega de recompensas.</td>
               </tr>
               <tr>
                 <td><strong>Información de Cuenta</strong></td>
                 <td>Nombre, correo electrónico, identificador de dispositivo.</td>
-                <td>Gestión de perfiles, sistema de rangos (experiencia) y notificaciones de beneficios.</td>
+                <td>Gestión de perfiles, sistema de rangos (experiencia) y notificaciones.</td>
               </tr>
               <tr>
                 <td><strong>Datos Técnicos y de Telemetría</strong></td>
@@ -170,8 +170,8 @@
         <p><strong>5.1. Historial de ubicación:</strong> las coordenadas GPS utilizadas para validar un reto se
           conservan mientras la cuenta permanezca activa y por un plazo adicional de 12 meses con fines de auditoría
           antifraude, salvo solicitud de eliminación anticipada.</p>
-        <p><strong>5.2. Evidencias fotográficas:</strong> se conservan mientras el reto o beneficio asociado esté
-          vigente, o hasta que el usuario solicite su eliminación.</p>
+        <p><strong>5.2. Evidencias fotográficas:</strong> se conservan mientras el reto completado esté
+          registrado en tu historial, o hasta que el usuario solicite su eliminación o la eliminación de su cuenta.</p>
         <p><strong>5.3. Eliminación de cuenta:</strong> al eliminar tu cuenta, tus datos personales identificables serán
           eliminados o anonimizados de forma irreversible. Las métricas agregadas y estadísticas de uso podrán
           conservarse de forma disociada, sin posibilidad de asociarse nuevamente a tu identidad.</p>
