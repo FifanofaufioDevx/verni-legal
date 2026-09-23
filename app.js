@@ -70,4 +70,28 @@ document.addEventListener('DOMContentLoaded', () => {
     highlightTOC();
     window.addEventListener('scroll', highlightTOC);
   }
+
+  // Smooth scroll for hash targets with offset (e.g. #delete-account)
+  function scrollToHash(hash) {
+    if (!hash) return;
+    const target = document.querySelector(hash);
+    if (target) {
+      const headerOffset = 90;
+      const elementPosition = target.getBoundingClientRect().top;
+      const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
+
+      window.scrollTo({
+        top: offsetPosition,
+        behavior: 'smooth',
+      });
+    }
+  }
+
+  if (window.location.hash) {
+    setTimeout(() => scrollToHash(window.location.hash), 150);
+  }
+
+  window.addEventListener('hashchange', () => {
+    scrollToHash(window.location.hash);
+  });
 });
